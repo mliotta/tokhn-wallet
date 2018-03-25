@@ -1,0 +1,1 @@
+JavaFX-based GUI wallet for [Tokhn](https://github.com/mliotta/tokhn)
