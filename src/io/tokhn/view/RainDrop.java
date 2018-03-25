@@ -1,6 +1,21 @@
+/*
+ * Copyright 2018 Matt Liotta
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package io.tokhn.view;
 
-import java.util.Arrays;
 import java.util.Random;
 
 import javafx.scene.canvas.GraphicsContext;
@@ -45,26 +60,9 @@ public class RainDrop {
 		y += velocity;
 	}
 
-	public char getRandomCharacter() {
-		return (char) (rng.nextInt(26) + 'a');
-	}
-
 	public int getRandomInteger(int min, int max) {
 		int randomNum = rng.nextInt((max - min) + 1) + min;
 		return randomNum;
-	}
-
-	public char[] getFixedCharArrayFromString(String text, int length) {
-		if (text.length() == length) {
-			return text.toCharArray();
-		} else if (text.length() < length) {
-			char tmp[] = new char[length];
-			Arrays.fill(tmp, ' ');
-			text.getChars(0, text.length(), tmp, 0);
-			return tmp;
-		} else {
-			return text.substring(0, length).toCharArray();
-		}
 	}
 
 	public boolean isOffScreen() {
