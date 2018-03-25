@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -55,17 +56,23 @@
                      <children>
                         <HBox alignment="CENTER" spacing="10.0">
                            <children>
-                              <Label text="Local" />
-                              <Label fx:id="localLabel" text="Label" />
+                              <Label fx:id="localZoneLabel" text="Local" />
+                              <Label fx:id="localLabel" prefWidth="140.0" text="Label" textAlignment="CENTER" />
                            </children>
                         </HBox>
                         <Separator orientation="VERTICAL" prefWidth="20.0" HBox.hgrow="SOMETIMES" />
                         <HBox alignment="CENTER" spacing="10.0">
                            <children>
                               <Label text="UTC" />
-                              <Label fx:id="utcLabel" text="Label" />
+                              <Label fx:id="utcLabel" prefWidth="140.0" text="Label" textAlignment="CENTER" />
                            </children>
                         </HBox>
+                     </children>
+                  </HBox>
+                  <Separator orientation="VERTICAL" />
+                  <HBox>
+                     <children>
+                        <Button fx:id="newTx" mnemonicParsing="false" onAction="#handleNewTx" text="New Transaction" />
                      </children>
                   </HBox>
                   <Pane HBox.hgrow="SOMETIMES" />

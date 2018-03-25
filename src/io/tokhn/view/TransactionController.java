@@ -45,7 +45,5 @@ public class TransactionController {
 	
 	public void setMain(Main main) {
 		this.main = main;
-		
-		txTable.setItems(main.getTxData());
 	}
 }

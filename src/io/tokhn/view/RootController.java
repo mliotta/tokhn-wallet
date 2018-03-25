@@ -2,9 +2,12 @@ package io.tokhn.view;
 
 import java.io.File;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import io.tokhn.Main;
@@ -14,6 +17,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.paint.Color;
@@ -28,9 +32,13 @@ public class RootController {
 	@FXML
 	private MenuItem saveAs;
 	@FXML
+	private Label localZoneLabel;
+	@FXML
 	private Label localLabel;
 	@FXML
 	private Label utcLabel;
+	@FXML
+	private Button newTx;
 	@FXML
 	private FontAwesomeIconView tokhnConnected;
 	
@@ -44,6 +52,11 @@ public class RootController {
 
 		timeline.setCycleCount(Animation.INDEFINITE);
 		timeline.play();
+	}
+	
+	@FXML
+	private void handleNewTx() {
+		main.showNewTransaction();
 	}
 	
 	@FXML
@@ -121,6 +134,8 @@ public class RootController {
 
 	public void setMain(Main main) {
 		this.main = main;
+		
+		localZoneLabel.setText(ZoneId.systemDefault().getDisplayName(TextStyle.SHORT, Locale.US));
 		
 		updateTokhnConnected(main.getTokhnConnected().getValue());
 		main.getTokhnConnected().addListener((observable, oldValue, newValue) -> updateTokhnConnected(newValue.booleanValue()));
